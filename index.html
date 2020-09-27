@@ -11,18 +11,18 @@
 </head>
 
 <body>
-    <button id="up">up</button>
-    <button id="left">left</button>
-    <button id="right">right</button>
-    <button id="down">down</button>
+    <button id="up"></button>
+    <button id="left"></button>
+    <button id="right"></button>
+    <button id="down"></button>
     <script>
         const http = new XMLHttpRequest()
 
-        const url = 'http://localhost:3000' // host url
+        const url = 'https://secure-plains-50034.herokuapp.com/' // host url
 
         up.addEventListener('mouseup', () => {
             console.log('up')
-            up.style.color = 'black'
+            up.style.borderColor = 'transparent transparent #3e4da5 transparent'
             http.open('POST', url, true)
             http.setRequestHeader('Content-type', 'application/json')
             http.send(JSON.stringify({
@@ -35,7 +35,7 @@
 
         up.addEventListener('mousedown', () => {
             console.log('down')
-            up.style.color = 'white'
+            up.style.borderColor = 'transparent transparent red transparent'
             http.open('POST', url, true)
             http.setRequestHeader('Content-type', 'application/json')
             http.send(JSON.stringify({
@@ -48,7 +48,7 @@
         })
         down.addEventListener('mouseup', () => {
             console.log('up')
-            down.style.color = 'black'
+            down.style.borderColor = '#3e4da5 transparent transparent transparent;'
             http.open('POST', url, true)
             http.setRequestHeader('Content-type', 'application/json')
             http.send(JSON.stringify({
@@ -61,7 +61,7 @@
 
         down.addEventListener('mousedown', () => {
             console.log('down')
-            down.style.color = 'white'
+            down.style.borderColor = 'red transparent transparentred transparent'
             http.open('POST', url, true)
             http.setRequestHeader('Content-type', 'application/json')
             http.send(JSON.stringify({
@@ -73,7 +73,7 @@
         })
         left.addEventListener('mouseup', () => {
             console.log('up')
-            left.style.color = 'black'
+            left.style.borderColor = 'transparent #3e4da5 transparent transparent'
             http.open('POST', url, true)
             http.setRequestHeader('Content-type', 'application/json')
             http.send(JSON.stringify({
@@ -85,7 +85,7 @@
         })
         left.addEventListener('mousedown', () => {
             console.log('down')
-            left.style.color = 'white'
+            left.style.borderColor = 'transparent red transparent transparent '
             http.open('POST', url, true)
             http.setRequestHeader('Content-type', 'application/json')
             http.send(JSON.stringify({
@@ -97,7 +97,7 @@
         })
         right.addEventListener('mouseup', () => {
             console.log('up')
-            right.style.color = 'black'
+            right.style.borderColor = 'transparent transparent transparent #3e4da5'
             http.open('POST', url, true)
             http.setRequestHeader('Content-type', 'application/json')
             http.send(JSON.stringify({
@@ -109,7 +109,7 @@
         })
         right.addEventListener('mousedown', () => {
                 console.log('down')
-                right.style.color = 'white'
+                right.style.borderColor = 'transparent transparent transparent red'
                 http.open('POST', url, true)
                 http.setRequestHeader('Content-type', 'application/json')
                 http.send(JSON.stringify({

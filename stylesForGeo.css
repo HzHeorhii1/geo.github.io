@@ -1,33 +1,45 @@
 button {
     height: 7%;
     width: 10%;
-    display: block;
-    position: relative;
-    border-radius: 0.3em;
-    margin: 0 auto;
-    margin-top: 2%;
-    font-size: 2em;
-    background-color: #CD5CDC;
-    color: black;
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
 }
 
 #up {
-    margin-top: 15%;
+    border-width: 0 50px 100px 50px;
+    border-color: transparent transparent #3e4da5 transparent;
+    margin-top: 30%;
+    margin-bottom: 70%;
+    margin-left: 50%;
+    margin-right: 50%;
+
 }
 
 #down {
-    margin-top: 7%;
-    margin-bottom: 20%;
-}
-
-#right {
-    position: absolute;
-    margin-left: 60%;
-    margin-right: 40%;
+    border-width: 100px 50px 0 50px;
+    border-color: #3e4da5 transparent transparent transparent;
+    margin-top: 70%;
+    margin-bottom: 30%;
+    margin-left: 50%;
+    margin-right: 50%;
 }
 
 #left {
-    position: absolute;
-    margin-left: 30%;
-    margin-right: 70%;
+    border-width: 50px 100px 50px 0;
+    border-color: transparent #3e4da5 transparent transparent;
+    margin-top: 50%;
+    margin-bottom: 50%;
+    margin-left: 35%;
+    margin-right: 65%;
+}
+
+#right {
+    border-width: 50px 0 50px 100px;
+    border-color: transparent transparent transparent #3e4da5;
+    margin-top: 50%;
+    margin-bottom: 50%;
+    margin-left: 65%;
+    margin-right: 35%;
 }
