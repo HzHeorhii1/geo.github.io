@@ -10,115 +10,82 @@
     <title>Document</title>
 </head>
 
+<img src="https://madfanboy.com/site/sites/default/files/users/t2o/d-pad-560x560.png" id="center">
+
 <body>
-    <button id="up"></button>
-    <button id="left"></button>
-    <button id="right"></button>
-    <button id="down"></button>
     <script>
         const http = new XMLHttpRequest()
 
-        const url = 'https://secure-plains-50034.herokuapp.com/' // host url
-
-        up.addEventListener('mouseup', () => {
-            console.log('up')
-            up.style.borderColor = 'transparent transparent #3e4da5 transparent'
-            http.open('POST', url, true)
-            http.setRequestHeader('Content-type', 'application/json')
-            http.send(JSON.stringify({
+        const url = 'https://secure-plains-50034.herokuapp.com/' // host 
+        
+        //alert(document.documentElement.clientHeight)
+        height = document.documentElement.clientHeight
+        width = document.documentElement.clientWidth
+        query = {
                 left: false,
                 right: false,
                 down: false,
                 up: false
-            }))
+            }
+        const transorm = (x, y) => {
+            x -= width/2
+            y -= height/2
+            y /= -height/2
+            x /= width/2
+            console.log(x, y)
+            return [x, y]
+        }
+
+        const findPart = (cords) => {
+            const x = cords[0]
+            const y = cords[1]
+            console.log(x/y)
+            if (x<y && Math.abs(x)<y){
+                return 'up'
+            }
+            if (x<y && Math.abs(x)>y){
+                return 'left'
+            }
+            if (x>y && x>Math.abs(y)){
+                return'right'
+            }
+            if (x>y && x<Math.abs(y)){
+                return 'down'
+            }
+        }
+
+        const send = () => {
+            http.open('POST', url, true)
+            http.setRequestHeader('Content-type', 'application/json')
+            http.send(JSON.stringify(query))
+        }
+
+        const clear = () => {
+            query = {
+                left: false,
+                right: false,
+                down: false,
+                up: false
+        }}
+
+        addEventListener('mouseup', () => {
+            console.log('up')
+            clear()
+            send()
         })
 
-        up.addEventListener('mousedown', () => {
+        addEventListener('mousedown', () => {
             console.log('down')
-            up.style.borderColor = 'transparent transparent red transparent'
-            http.open('POST', url, true)
-            http.setRequestHeader('Content-type', 'application/json')
-            http.send(JSON.stringify({
-                left: false,
-                right: false,
-                down: false,
-                up: true
-            }))
-
+            const part =  findPart(transorm(event.pageX, event.pageY))
+            //alert(part)
+            switch (part) {
+                case "up": query.up = true
+                case "down": query.down = true
+                case "left": query.left = true
+                case "right": query.right = true
+            }
+            send()
         })
-        down.addEventListener('mouseup', () => {
-            console.log('up')
-            down.style.borderColor = '#3e4da5 transparent transparent transparent;'
-            http.open('POST', url, true)
-            http.setRequestHeader('Content-type', 'application/json')
-            http.send(JSON.stringify({
-                left: false,
-                right: false,
-                down: false,
-                up: false
-            }))
-        })
-
-        down.addEventListener('mousedown', () => {
-            console.log('down')
-            down.style.borderColor = 'red transparent transparentred transparent'
-            http.open('POST', url, true)
-            http.setRequestHeader('Content-type', 'application/json')
-            http.send(JSON.stringify({
-                left: false,
-                right: false,
-                down: true,
-                up: false
-            }))
-        })
-        left.addEventListener('mouseup', () => {
-            console.log('up')
-            left.style.borderColor = 'transparent #3e4da5 transparent transparent'
-            http.open('POST', url, true)
-            http.setRequestHeader('Content-type', 'application/json')
-            http.send(JSON.stringify({
-                left: false,
-                right: false,
-                down: false,
-                up: false
-            }))
-        })
-        left.addEventListener('mousedown', () => {
-            console.log('down')
-            left.style.borderColor = 'transparent red transparent transparent '
-            http.open('POST', url, true)
-            http.setRequestHeader('Content-type', 'application/json')
-            http.send(JSON.stringify({
-                left: true,
-                right: false,
-                down: false,
-                up: false
-            }))
-        })
-        right.addEventListener('mouseup', () => {
-            console.log('up')
-            right.style.borderColor = 'transparent transparent transparent #3e4da5'
-            http.open('POST', url, true)
-            http.setRequestHeader('Content-type', 'application/json')
-            http.send(JSON.stringify({
-                left: false,
-                right: false,
-                down: false,
-                up: false
-            }))
-        })
-        right.addEventListener('mousedown', () => {
-                console.log('down')
-                right.style.borderColor = 'transparent transparent transparent red'
-                http.open('POST', url, true)
-                http.setRequestHeader('Content-type', 'application/json')
-                http.send(JSON.stringify({
-                    left: false,
-                    right: true,
-                    down: false,
-                    up: false
-                }))
-            })
     </script>
 </body>
 

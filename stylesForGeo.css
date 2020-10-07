@@ -1,8 +1,7 @@
 button {
-    height: 7%;
-    width: 10%;
+    height: 100%;
+    width: 100%;
     position: absolute;
-    display: inline-block;
     width: 0;
     height: 0;
 }
@@ -10,10 +9,6 @@ button {
 #up {
     border-width: 0 50px 100px 50px;
     border-color: transparent transparent #3e4da5 transparent;
-    margin-top: 30%;
-    margin-bottom: 70%;
-    margin-left: 50%;
-    margin-right: 50%;
 
 }
 
@@ -42,4 +37,11 @@ button {
     margin-bottom: 50%;
     margin-left: 65%;
     margin-right: 35%;
+}
+
+#center {
+    margin-top: 50%;
+    margin-bottom: 50%;
+    margin-left: 50%;
+    margin-right: 50%;
 }
